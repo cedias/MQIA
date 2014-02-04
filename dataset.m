@@ -22,8 +22,6 @@ function [xapp,yapp,xtest,ytest,xtest1,xtest2]=dataset(n,nbapp,nbtest,sigma)
 %
 %   'CosExp': sign( 0.95*cos(0.5*(exp(x)-1)))); for x in [0...4]
 %       xtest1,xtest2 meshgrid of xtest
-%
-% sigma : noise level in the dataset
 
 xapp=[];
 yapp=[];
@@ -212,9 +210,9 @@ case 'multiclassgaussian'
     
     
     
-    mean1=[1 1];
-    mean2=[-1 1];
-    mean3= [0 -1];
+    mean1=[2 2];
+    mean2=[-4 2];
+    mean3= [-3 -2];
     x1=sigma*randn(nbapp,2)+ones(nbapp,1)*mean1;
     y1= ones(nbapp,1);
     x2=sigma*randn(nbapp,2)+ones(nbapp,1)*mean2;
