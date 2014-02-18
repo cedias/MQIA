@@ -1,0 +1,128 @@
+# Created by Octave 3.0.1, Sun Mar 22 22:03:06 2009 CET <artieres@artieres-laptop>
+# name: pmc
+# type: cell
+# rows: 1
+# columns: 3
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.1724960504788286
+ -1.553647235672737
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.1724960504788286
+ -1.553647235672737
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0
+ 0
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 4
+flin
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+dflin
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 5
+# columns: 1
+ 2.842363024757533
+ -0.13507464275668
+ -1.331258234060692
+ -0.4850098161074669
+ -1.345818927564986
+
+# name: <cell-element>
+# type: matrix
+# rows: 5
+# columns: 1
+ 1.591340979832994
+ -0.1374752763335633
+ -1.127678234078096
+ -0.4812026298190054
+ -1.135946874198078
+
+# name: <cell-element>
+# type: matrix
+# rows: 5
+# columns: 3
+ 0.1939399712871656 -0.3521919545703008 -1.744054196952012
+ 0.1732874581074961 0.9312689378965453 0.3050139684167836
+ -1.125816196921293 0.3538199051097188 0.1737558221220645
+ -0.7011251968542237 -0.3423563025912524 -0.173950115304808
+ -0.1230775248215162 0.8441201429462529 0.8812662327906766
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+f_ccs
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 6
+df_ccs
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.228513717966489
+ 0.7399523990089716
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.228513717966489
+ 0.7399523990089716
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 6
+ 0.3784270782892831 -0.06758576638844636 -0.06083724724014921 0.05676826173047623 -0.3035618922721482 0.1421655200830662
+ -0.1144853650543664 0.1652191902682776 -0.3264094204713008 -0.3040779845462582 -0.566469267492605 0.03184425368673943
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 9
+f_sorties
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 10
+df_sorties
+
+

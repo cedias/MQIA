@@ -1,0 +1,125 @@
+# Created by Octave 3.0.1, Sun Mar 22 22:02:59 2009 CET <artieres@artieres-laptop>
+# name: pmc
+# type: cell
+# rows: 1
+# columns: 3
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ -1.241513815953082
+ 1.599313641568309
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ -1.241513815953082
+ 1.599313641568309
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0
+ 0
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 4
+flin
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+dflin
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 4
+# columns: 1
+ -1.328886536399105
+ -0.4062457706974374
+ 0.6717493989071721
+ 0.4740778444095811
+
+# name: <cell-element>
+# type: matrix
+# rows: 4
+# columns: 1
+ -1.126322290069144
+ -0.4063548193940712
+ 0.6503440505816369
+ 0.4709265092992382
+
+# name: <cell-element>
+# type: matrix
+# rows: 4
+# columns: 3
+ 0.1249476796422916 -0.54864366461545 -1.341600804071157
+ 0.1405934089231578 0.02402369880193214 -0.3224739123813077
+ -0.280106167182523 -0.1077557398305431 0.5064615155593869
+ 0.6847329455811323 0.03792524423429545 -0.101801088086739
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+f_ccs
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 6
+df_ccs
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.7563698123181579
+ 0.2680753974694078
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.7563698123181579
+ 0.2680753974694078
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 5
+ 0.03985727426278156 -0.3894537833850719 0.4932976462650145 0.2386151844596686 0.7173252083942406
+ 0.1598925988082385 0.3532151411045753 0.4025763635702333 0.5578020035084323 0.6172868307931204
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 9
+f_sorties
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 10
+df_sorties
+
+

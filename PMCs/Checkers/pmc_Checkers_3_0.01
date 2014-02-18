@@ -1,0 +1,122 @@
+# Created by Octave 3.0.1, Sun Mar 22 21:47:07 2009 CET <artieres@artieres-laptop>
+# name: pmc
+# type: cell
+# rows: 1
+# columns: 3
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 1.695803283835129
+ 1.593119214969402
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 1.695803283835129
+ 1.593119214969402
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0
+ 0
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 4
+flin
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+dflin
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 1
+ -1.755017388358913
+ -0.8505146198419417
+ 0.1810075289043123
+
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 1
+ -1.33105579752335
+ -0.7993157649989486
+ 0.1839051970723852
+
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 3
+ -1.345847755628294 -0.3769557959396745 0.1347828764660563
+ 0.2112840739874625 -0.9644295558208338 0.3664196785835189
+ 0.02859508563612082 0.2141718525079286 -0.124723206881887
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+f_ccs
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 6
+df_ccs
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.3364332207648585
+ 0.635046845416153
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.3364332207648585
+ 0.635046845416153
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 4
+ 0.432822692668746 0.09122049535132257 0.006681830050635798 0.03937280152310469
+ -0.2008909492884777 -0.7661525237572554 0.2665666426604033 0.2953035476616403
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 9
+f_sorties
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 10
+df_sorties
+
+

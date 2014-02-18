@@ -1,0 +1,122 @@
+# Created by Octave 3.0.1, Sun Mar 22 21:06:31 2009 CET <artieres@artieres-laptop>
+# name: pmc
+# type: cell
+# rows: 1
+# columns: 3
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ -0.09893302787729022
+ 0.7497988220225252
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ -0.09893302787729022
+ 0.7497988220225252
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0
+ 0
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 4
+flin
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+dflin
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 1
+ -2.061445234260276
+ 1.479753904847526
+ -0.7571419642246066
+
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 1
+ -1.435751522456676
+ 1.207563280971067
+ -0.7232055833892551
+
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 3
+ -1.929780294013796 -1.556606044424456 -0.3799539909912912
+ 0.7626678082662718 -1.135489152906494 0.8052804544842256
+ -0.7607589310704715 -0.238283209771029 -0.02869661184166607
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+f_ccs
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 6
+df_ccs
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 1.069544400669105
+ -0.06126684039711197
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 1.069544400669105
+ -0.06126684039711197
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 4
+ -0.05696717211619195 -0.6946167615985496 0.4654512798162111 0.607848518229326
+ 1.212815224525613 0.6378969069186998 -0.4826014501571575 -0.3187193035223035
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 9
+f_sorties
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 10
+df_sorties
+
+

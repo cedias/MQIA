@@ -1,0 +1,122 @@
+# Created by Octave 3.0.1, Sun Mar 22 22:02:44 2009 CET <artieres@artieres-laptop>
+# name: pmc
+# type: cell
+# rows: 1
+# columns: 3
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ -0.4552756250896586
+ 1.653146261086145
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ -0.4552756250896586
+ 1.653146261086145
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0
+ 0
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 4
+flin
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+dflin
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 1
+ -0.357174177591217
+ 1.962902168891269
+ 2.697775403095467
+
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 1
+ -0.3588409801041188
+ 1.405454697066537
+ 1.571531588871028
+
+# name: <cell-element>
+# type: matrix
+# rows: 3
+# columns: 3
+ -0.1603690404789669 -0.1177358216074288 -0.1569542519793419
+ -1.157682968950293 -1.046004341727718 1.5978866291637
+ 0.4262636742866344 0.8403463377504634 1.60672608027306
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+f_ccs
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 6
+df_ccs
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.6156887106583429
+ 0.3876664654624474
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.6156887106583429
+ 0.3876664654624474
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 4
+ 0.4204750243968879 -0.06357080494959406 -0.1341496369800692 0.2567195750143381
+ 0.6006650646134453 0.2492419558714542 0.1342749083936841 -0.2259887877472114
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 9
+f_sorties
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 10
+df_sorties
+
+

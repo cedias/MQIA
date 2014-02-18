@@ -1,0 +1,112 @@
+# Created by Octave 3.0.1, Sun Mar 22 21:47:02 2009 CET <artieres@artieres-laptop>
+# name: pmc
+# type: cell
+# rows: 1
+# columns: 3
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.2842509633969335
+ 1.827062336461351
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.2842509633969335
+ 1.827062336461351
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0
+ 0
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 4
+flin
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+dflin
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: scalar
+1.15329628804832
+
+# name: <cell-element>
+# type: scalar
+1.018726791629273
+
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 3
+ 1.138244529638888 -0.02599111690434835 0.001977626952179016
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+f_ccs
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 6
+df_ccs
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.4337227699803337
+ 0.5805735580753182
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.4337227699803337
+ 0.5805735580753182
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 2
+ 0.00243722929681519 0.4459897475830451
+ -0.4350829565346171 0.9737824499006131
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 9
+f_sorties
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 10
+df_sorties
+
+

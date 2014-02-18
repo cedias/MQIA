@@ -1,0 +1,140 @@
+# Created by Octave 3.0.1, Sun Mar 22 22:03:34 2009 CET <artieres@artieres-laptop>
+# name: pmc
+# type: cell
+# rows: 1
+# columns: 3
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.9454299247912712
+ -0.1146671406874786
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.9454299247912712
+ -0.1146671406874786
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0
+ 0
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 4
+flin
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+dflin
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 9
+# columns: 1
+ -0.5788825362677226
+ -1.465597552878359
+ -0.6955994300478088
+ -0.3149148903794235
+ -0.1096766602186036
+ 0.2549933830583851
+ -0.6865657540728966
+ 0.1546369335527321
+ 0.006391906856952951
+
+# name: <cell-element>
+# type: matrix
+# rows: 9
+# columns: 1
+ -0.5678086751487509
+ -1.200366289366349
+ -0.6709963875930909
+ -0.3174443812440192
+ -0.1117089906667227
+ 0.2580826715948351
+ -0.6632009503097841
+ 0.1572786184921212
+ 0.00651971302942562
+
+# name: <cell-element>
+# type: matrix
+# rows: 9
+# columns: 3
+ -0.2061096712927639 -0.3186541066971887 0.6927017186304326
+ -0.3247358747360435 -1.234390074669899 -0.2333930437713421
+ -0.8012797867592546 0.1022470812084598 -0.08373797604348239
+ -0.2525310246985398 0.04364013971977464 0.8441816384408599
+ -0.0538049591797173 -0.09302065097696 -0.3622755875568199
+ -0.05547151681804523 0.322433079667225 -0.03551006916560085
+ -0.580938693942706 -0.2250201544360871 -0.9040222139312458
+ -0.431669905925564 0.7218140943561092 0.791880254334055
+ -0.1279313923141624 0.00545029325965995 -1.091058495928934
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 5
+f_ccs
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 6
+df_ccs
+
+
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 5
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.6253162711236885
+ 0.3839640926433999
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 1
+ 0.6253162711236885
+ 0.3839640926433999
+
+# name: <cell-element>
+# type: matrix
+# rows: 2
+# columns: 10
+ 0.265620693112421 -0.06498097615094103 0.02931939588038463 -0.2999228344801845 0.1292365579825444 0.5661023715588503 0.2210840383178358 -0.3078402271914664 0.1816767611497882 -0.01562279279103898
+ 0.2181362242333473 0.5468111064649801 -0.0335991622170142 -0.3297854600610645 -0.347627090779574 -0.08765881562253136 0.3193294937923938 -0.01575217654693612 -0.1868441803912542 0.258777535321796
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 9
+f_sorties
+
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 10
+df_sorties
+
+
