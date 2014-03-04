@@ -61,8 +61,8 @@ endfunction
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 INPUT = 256; %nb_pixels
 OUTPUT = 10; %nb_classes
-HIDDEN = {10}; %nb couches cachés
-EPS = 0.01;
+HIDDEN = {20}; %nb couches cachés
+EPS = 0.001;
 ITERATION = 100;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -72,24 +72,17 @@ load("usps_napp10.dat");
 [erreurMC, erreurPC, pmc ] = train_pmc(xapp,yapp,INPUT,OUTPUT,HIDDEN,EPS,ITERATION);
 
 subplot(2,2,1);
-plot(erreurMC,"r");
+plot(erreurMC);
 subplot(2,2,2);
-bar(erreurPC,"r");
+bar(erreurPC);
 
 pred = classPredPMC(xtest,pmc);
-positif = pred;
-negatif = pred;
-positif(pred==ytest) = 1;
-positif(pred!=ytest) = 0;
 
+negatif = pred;
 negatif(pred!=ytest) = 1;
 negatif(pred==ytest) = 0;
-nbBad = sum(negatif);
-nbGood = sum(positif);
+nbBad = sum(negatif)
 
-taille= size(ytest,1);
-subplot(2,2,3);
-b = bar([nbGood , nbBad]);
 
 
          
