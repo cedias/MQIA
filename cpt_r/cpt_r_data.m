@@ -15,15 +15,15 @@ end
 
 figure;
 %Gaussiennes:
-[xapp,yapp,xtest,ytest] = dataset('Gaussian',100,600,0.3);
+[xapp,yapp,xtest,ytest] = dataset('Gaussian',100,0,0.3);
 saveDataPS("Gaussian",xapp,yapp);
 clf;
 %Clowns:
-[xapp,yapp,xtest,ytest] = dataset('Clowns',100,600,0.3);
+[xapp,yapp,xtest,ytest] = dataset('Clowns',100,0,0.3);
 saveDataPS("Clowns",xapp,yapp);
 clf;
 %Checkers:
-[xapp,yapp,xtest,ytest] = dataset('Checkers',100,600,0.3);
+[xapp,yapp,xtest,ytest] = dataset('Checkers',100,0,0.3);
 saveDataPS("Checkers",xapp,yapp);
 clf;
 close all;
