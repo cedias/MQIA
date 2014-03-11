@@ -33,7 +33,7 @@ load("usps_napp10.dat");
 index = 1;
 figure
 for i=[1:10:90];
-	ch = reshape(xapp(i,:),16,16)'; % remise en carre de l'image
+	ch = rot90(reshape(xapp(i,:),16,16)); % remise en carre de l'image
 	subplot(3,3,index); % division de la fenêtre en 2 pour affichage ultérieur
 	hold on;
 	imagesc(ch); % affichage
