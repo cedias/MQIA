@@ -10,7 +10,7 @@ function [tx_err] = tx_err(Y,Ypred)
 
 endfunction
 
-function [] = plotAndSaveBest(X,Y,res)
+function [] = plotAndSaveBest(X,Y,res,filename)
 
 	figure;
 	subplot(1,2,1);
@@ -26,6 +26,7 @@ function [] = plotAndSaveBest(X,Y,res)
 	xgrid = generateGrid(X,50);
 	ygrid = knn2(X,Y,Y,xgrid,nb);
 	plotFrontiere(xgrid,ygrid);
+	saveas(1,filename, "epsc");
 
 endfunction
 
@@ -60,26 +61,27 @@ xappUS = xappUS(perm,:);
 yappUS = yappUS(perm,:);
 
 %Gaussian:
-[xappGA,yappGA,os,ef] = dataset('Gaussian',100,0,0.3);
+[xappGA,yappGA,os,ef] = dataset('Gaussian',200,0,0.4);
 
 %Clowns:
-[xappCL,yappCL,os,ef] = dataset('Clowns',100,0,0.3);
+[xappCL,yappCL,os,ef] = dataset('Clowns',200,0,0.4);
 
 %Checkers:
-[xappCh,yappCh,os,ef] = dataset('Checkers',100,0,0.3);
+[xappCh,yappCh,os,ef] = dataset('Checkers',200,0,0.4);
 
 
-res = protocoleTestKNN(xappGA,yappGA,4,24);
-plotAndSaveBest(xappGA,yappGA,res);
+res = protocoleTestKNN(xappGA,yappGA,4,49);
+plotAndSaveBest(xappGA,yappGA,res,"gaknn.eps");
 
-res = protocoleTestKNN(xappCL,yappCL,4,24);
-plotAndSaveBest(xappCL,yappCL,res);
+res = protocoleTestKNN(xappCL,yappCL,4,49);
+plotAndSaveBest(xappCL,yappCL,res,"cloknn.eps");
 
-res = protocoleTestKNN(xappCh,yappCh,4,24);
-plotAndSaveBest(xappCh,yappCh,res);
+res = protocoleTestKNN(xappCh,yappCh,4,48);
+plotAndSaveBest(xappCh,yappCh,res,"cheknn.eps");
 
 
 res = protocoleTestKNN(xappUS([1:400],:),yappUS([1:400],:),4,24);
 [val, nb] = min(res);
 %knn2(xappUS,yappUS,yappUS,xgrid,nb);
+%}
 

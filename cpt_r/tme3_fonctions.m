@@ -56,8 +56,8 @@ end;
 
 %%%%%%% Fonctions de gradient Batch
 
-function [W, C] = optimise_gradient_batch(Base, epsi, rate_epsi, winit , cout, dcout )
-nbitemax = 200;
+function [W, C] = optimise_gradient_batch(Base, epsi, rate_epsi, winit ,iter, cout, dcout )
+nbitemax = iter;
 wcour = winit;
 W = [];
 C = [cout(wcour,Base)];
@@ -72,8 +72,8 @@ end;
 
 %%%%%%% Fonctions de gradient Stochastique
 
-function [W, C] = optimise_gradient_stoch(Base, epsi, rate_epsi, winit , cout, dcout )
-nbitemax = 200;
+function [W, C] = optimise_gradient_stoch(Base, epsi, rate_epsi, winit ,iter, cout, dcout )
+nbitemax = iter;
 wcour = winit;
 Base=MelangeAleatBase(Base);
 N=nbexemples(Base);
