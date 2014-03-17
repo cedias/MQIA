@@ -107,8 +107,47 @@ for i=1:4
 	txV =[txV _txV];
 end
 
-plotAndSaveResults(txA,tcA,txV,tcV,w,xappGA,yappGA);
+%plotAndSaveResults(txA,tcA,txV,tcV,w,xappGA,yappGA);
 tx_pourcentage_test = mean(tcV)
 tx_pourcentage_apprentissage = mean(tcA)
 tx_mc_apprentissage = mean(txA)
 tx_mc_test = mean(txV)
+
+%%%%%%%%%% - USPS - %%%%%%%%%%ù
+
+load("usps_napp10.dat");
+
+perm = randperm(size(xapp,1));
+xapp = xapp(perm,:);
+yapp = yapp(perm,:);
+
+modeles = [];
+for i=1:10 %on va creer 9 modèles
+	baseY = yapp;
+	baseY(yapp == i)=1;
+	baseY(yapp ~= i)=-1;
+	Base={xapp,baseY};
+	w = init_params(Base);
+	[histW, histC] = optimise_gradient_stoch(Base,0.001, 1, w ,50, @cout_mse, @dcout_mse );
+	modeles = [modeles  histW(:,size(histW,2))];
+end
+
+plot(histC([1000:length(histC)]))
+
+%modeles - 9 colonnes - 256 lignes
+%xapp - 100 l - 256 col
+res = [];
+for i=1:10
+	res = [res xapp*modeles(:,i)];
+end
+
+[a,labels] = max(res,[],2);
+
+
+
+figure
+for(i=1:10)
+	subplot(3,4,i);
+	imagesc(reshape(modeles(:,i),16,16)')
+end
+

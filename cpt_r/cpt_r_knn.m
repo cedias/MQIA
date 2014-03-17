@@ -51,6 +51,8 @@ function [tx_Val] = protocoleTestKNN(X,Y,nbCrossVal,maxN)
 endfunction
 
 %%%%%%%%%%%%%%%%% -- START -- %%%%%%%%%%%%%%%%%%%%%%%%
+USPSONLY = 1;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 load("usps_napp10.dat");
 xappUS = [xapp;xtest];
@@ -61,27 +63,35 @@ xappUS = xappUS(perm,:);
 yappUS = yappUS(perm,:);
 
 %Gaussian:
-[xappGA,yappGA,os,ef] = dataset('Gaussian',200,0,0.4);
+%[xappGA,yappGA,os,ef] = dataset('Gaussian',1000,0,0.4);
 
 %Clowns:
-[xappCL,yappCL,os,ef] = dataset('Clowns',200,0,0.4);
+[xappCL,yappCL,os,ef] = dataset('Clowns',1000,0,0.4);
 
 %Checkers:
-[xappCh,yappCh,os,ef] = dataset('Checkers',200,0,0.4);
+[xappCh,yappCh,os,ef] = dataset('Checkers',1000,0,0.4);
 
 
-res = protocoleTestKNN(xappGA,yappGA,4,49);
-plotAndSaveBest(xappGA,yappGA,res,"gaknn.eps");
 
-res = protocoleTestKNN(xappCL,yappCL,4,49);
-plotAndSaveBest(xappCL,yappCL,res,"cloknn.eps");
+if USPSONLY ~= 1
+	res = protocoleTestKNN(xappCL,yappCL,4,249);
+	plotAndSaveBest(xappCL,yappCL,res,"cloknn.eps");
+	clown = min(res)
 
-res = protocoleTestKNN(xappCh,yappCh,4,48);
-plotAndSaveBest(xappCh,yappCh,res,"cheknn.eps");
+	res = protocoleTestKNN(xappCh,yappCh,4,248);
+	plotAndSaveBest(xappCh,yappCh,res,"cheknn.eps");
+	check = min(res)
 
+
+	res = protocoleTestKNN(xappGA,yappGA,4,49);
+	plotAndSaveBest(xappGA,yappGA,res,"gaknn.eps");
+	gauss = min(res)
+end
+
+%USPS
 
 res = protocoleTestKNN(xappUS([1:400],:),yappUS([1:400],:),4,24);
 [val, nb] = min(res);
-%knn2(xappUS,yappUS,yappUS,xgrid,nb);
-%}
+knn2(xappUS,yappUS,yappUS,xgrid,nb);
+
 
