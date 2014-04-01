@@ -47,6 +47,16 @@ function [velib_take_N,velib_let_N,velib_curr_N] = normMax(velib_take,velib_let,
 	velib_let_N(isnan(velib_let_N)) = 0;
 end
 
+%donneesCurrent En Etats
+function [donneesEtats] = transformeEtats(nbEtats,donneesNorm)
+	inter = [0:(1/nbEtats):1];
+	donneesEtats = ones(size(donneesNorm));
+
+	for i=2:(size(inter,2))
+		donneesEtats((donneesNorm>=inter(i-1) & donneesNorm<inter(i))) = i-1;
+	end
+end
+
 %compacte les données => change la fenetre
 function [velib_take_c,velib_let_c,velib_curr_c] = compact(velib_take,velib_let,velib_curr,taillePaquets)
 	velib_take_c = [];
