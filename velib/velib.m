@@ -16,5 +16,6 @@ week = getWeekData(velib_take,velib_let,velib_curr);
 
 
 [donneesEtats] = transformeEtats(3,velib_curr_N);
-[chaine] = initChaineMarkov(3,donneesEtats);
+%[chaine] = initChaineMarkov(3,donneesEtats);
+[clusters , chaines] = clustersCM(3,2,donneesEtats,10);
 
