@@ -31,7 +31,8 @@ function [clusters , chaines] = clustersCM(nbetats,nbChaines,matSequences,nbIter
 	nbEch = size(matSequences,1);
 	chaines = {};
 	%init au hasard
-	clusters=round(rand(nbEch,1).*nbChaines); %vecteur colonne (nbEch,1);
+	clusters=floor(rand(nbEch,1).*nbChaines+1);
+
 	for i=1:nbChaines
 		chaines{i} = initChaineMarkov(nbetats,matSequences(clusters==i,:)); %init
 	end
@@ -55,14 +56,15 @@ function [chaines, clusters] = maxVraisemblanceCM(matSequences,chaines,nbetats,n
 		for cha=1:nbChaines %pour chaque chaine
 			lklhood = [lklhood likelyhoodSeqCM(matSequences(seq,:),chaines{cha})];
 		end
-		clusters(seq) = max(lklhood,[],2);
+		[maxVal, maxI] = max(lklhood,[],2);
+		clusters(seq) = maxI;
 	end 
 end
 
 function [like] = likelyhoodSeqCM(seq,chaine)
-	seq
-	like = 1*chaine{3}(seq(1,1));
+	like = log(chaine{3}(seq(1)));
 	for i=2:size(seq,2)
-		like = like*chaine{2}(seq(1,i-1),seq(1,i)); %%%BUG ?
+		
+		like = like+log(chaine{2}(seq(1,i-1),seq(1,i))); %%%BUG ?
 	end
 end

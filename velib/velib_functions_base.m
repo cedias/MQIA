@@ -35,6 +35,11 @@ function [activ] = activiteStation(velib_take, velib_let, index)
 	activ = velib_take(index,:) + velib_let(index,:);
 end
 
+%differenciel let-take
+function [velib_diff] = diffData(velib_take,velib_let)
+	velib_diff = velib_let - velib_take;
+end
+
 %normalise par nombre veloMax
 function [velib_take_N,velib_let_N,velib_curr_N] = normMax(velib_take,velib_let,velib_curr)
 	maxV = maxVeloStations(velib_curr);
@@ -49,7 +54,9 @@ end
 
 %donneesCurrent En Etats
 function [donneesEtats] = transformeEtats(nbEtats,donneesNorm)
-	inter = [0:(1/nbEtats):1];
+	mini = min(min(donneesNorm));
+	maxi = max(max(donneesNorm));
+	inter = [mini:((maxi-mini)/nbEtats):maxi];
 	donneesEtats = ones(size(donneesNorm));
 
 	for i=2:(size(inter,2))
@@ -73,10 +80,7 @@ function [velib_take_c,velib_let_c,velib_curr_c] = compact(velib_take,velib_let,
 			velib_take_c = [velib_take_c sum(velib_take(:,[i:size(velib_take,2)]),2)]; % truncate data ?
 			velib_let_c = [velib_let_c sum(velib_let(:,[i:size(velib_let,2)]),2)]; % truncate data ?
 		end
-		
-	end
-	
-	
+	end	
 end
 
 %données compacté jours par jours
@@ -100,12 +104,10 @@ function [velib_take_gauss,velib_let_gauss,velib_curr_gauss] = filtreGauss(velib
 		indMin = max(1,round(i-(taille/2)));
 		indMax = min(size(velib_curr,2), round(i+(taille/2)));
 
-
 		curr = mean(velib_curr(:,[indMin:indMax]),2);
 		let = mean(velib_let(:,[indMin:indMax]),2);
 		take = mean(velib_take(:,[indMin:indMax]),2);
 			
-
 		velib_curr_gauss = [velib_curr_gauss curr];
 		velib_let_gauss = [velib_let_gauss let];
 		velib_take_gauss = [velib_take_gauss take];
