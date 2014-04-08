@@ -24,7 +24,16 @@ function [data] = getWeekData(velib_take,velib_let,velib_curr)
 	[data{5}{1},data{5}{2},data{5}{3}] = getDayData(velib_take,velib_let,velib_curr,3); %vendredi
 end
 
-
+%enlever stations sans activité.
+function [velib_take,velib_let,velib_curr, ind0] = enleverInactive(velib_take,velib_let,velib_curr, infostationsP)
+	%indice où max = 0 => pas d'activité
+	ind0 = find(maxVeloStations(velib_curr)==0);
+	%reeaffectation
+	velib_take(ind0',:) = [];
+	velib_curr(ind0',:) = [];
+	velib_let(ind0',:) = [];
+	infostationsP(ind0',:) = [];
+end
 %nombre max velib par stations
 function [maxV] = maxVeloStations(velib_curr)
 	maxV = max(velib_curr,[],2);
@@ -44,9 +53,11 @@ end
 function [velib_take_N,velib_let_N,velib_curr_N] = normMax(velib_take,velib_let,velib_curr)
 	maxV = maxVeloStations(velib_curr);
 	divs = repmat(maxV,1,1008);
+
 	velib_curr_N = velib_curr./divs;
 	velib_take_N = velib_take./divs;
 	velib_let_N = velib_let./divs;
+	
 	velib_curr_N(isnan(velib_curr_N)) = 0;
 	velib_take_N(isnan(velib_take_N)) = 0;
 	velib_let_N(isnan(velib_let_N)) = 0;
@@ -112,4 +123,10 @@ function [velib_take_gauss,velib_let_gauss,velib_curr_gauss] = filtreGauss(velib
 		velib_let_gauss = [velib_let_gauss let];
 		velib_take_gauss = [velib_take_gauss take];
 	end
+end
+
+%met les infostations dans le bon sens
+function [infostationsP] = permutToInfoStation(infostations,id2stations)
+	id2stations(:,1)+=1; %indicé à 0 au lieu de 1...
+	infostationsP = infostations(id2stations(:,2),:);
 end

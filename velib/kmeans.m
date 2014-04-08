@@ -39,10 +39,10 @@ while (true)
 
    if (length(index)>0)
 	
-	newcenters(i,:) = mean(x(index,:))
+	newcenters(i,:) = mean(x(index,:));
 
     else % disparition d'un centre...
-      newcenters(i,:) = x(ceil(rand*npts),:)
+      newcenters(i,:) = x(ceil(rand*npts),:);
       fprintf("** ");
     endif 
   endfor
