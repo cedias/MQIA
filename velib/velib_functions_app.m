@@ -38,6 +38,7 @@ function [clusters , chaines] = clustersCM(nbetats,nbChaines,matSequences,nbIter
 	end
 
 	for iter=1:nbIter
+		fprintf("iter n°%d\n", iter); fflush(stdout);
 		%reaffecter en fonction des vraisemblances
 		[ch, clusters] = maxVraisemblanceCM(matSequences,chaines,nbetats,nbChaines);
 

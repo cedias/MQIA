@@ -25,14 +25,14 @@ function [data] = getWeekData(velib_take,velib_let,velib_curr)
 end
 
 %enlever stations sans activité.
-function [velib_take,velib_let,velib_curr, ind0] = enleverInactive(velib_take,velib_let,velib_curr, infostationsP)
+function [velib_take,velib_let,velib_curr,infostations, ind0] = enleverInactive(velib_take,velib_let,velib_curr, infostations)
 	%indice où max = 0 => pas d'activité
 	ind0 = find(maxVeloStations(velib_curr)==0);
 	%reeaffectation
 	velib_take(ind0',:) = [];
 	velib_curr(ind0',:) = [];
 	velib_let(ind0',:) = [];
-	infostationsP(ind0',:) = [];
+	infostations(ind0',:) = [];
 end
 %nombre max velib par stations
 function [maxV] = maxVeloStations(velib_curr)
@@ -52,7 +52,7 @@ end
 %normalise par nombre veloMax
 function [velib_take_N,velib_let_N,velib_curr_N] = normMax(velib_take,velib_let,velib_curr)
 	maxV = maxVeloStations(velib_curr);
-	divs = repmat(maxV,1,1008);
+	divs = repmat(maxV,1,size(velib_curr,2));
 
 	velib_curr_N = velib_curr./divs;
 	velib_take_N = velib_take./divs;
@@ -127,6 +127,10 @@ end
 
 %met les infostations dans le bon sens
 function [infostationsP] = permutToInfoStation(infostations,id2stations)
-	id2stations(:,1)+=1; %indicé à 0 au lieu de 1...
-	infostationsP = infostations(id2stations(:,2),:);
+	permut = [];
+	for i=1:size(id2stations,1)
+		ind = find(infostations(:,1)==id2stations(i,2));
+		permut = [permut; ind];
+	end
+	infostationsP=infostations(permut,:);
 end
