@@ -69,22 +69,14 @@ disp("==============Kmean sur le delta d\'activitée");
 
 cmap = jet(NBKM);
 [centers, clusters] = kmeans(velib_diff,NBKM);
-
 stDaPlot = plotStationsParisCouleur(infostations,clusters,cmap);
-title("clusters des Stations");
 saveas(stDaPlot,"stationDiffCluster.eps","epsc")
-
+title(stDaPlot,"Hello");
 diffClust = afficheDiffStationsMean(velib_diff,clusters,cmap);
-title("Difference d'activitee moyenne des stations par clusters");
 saveas(diffClust,"diffHpHClust.eps","epsc")
 
 stationDep = find(clusters==1);
 stationArr = find(clusters==2);
-
-afficheDiffStationPerDay(week,weekend,clusters,cmap);
-afficheDiffWeekWeekend(week,weekend,clusters,cmap);
-
-
 %{
 %==~ KMEANS - Activité totale
 disp("==============Kmean sur l\'activité totale");
