@@ -43,7 +43,16 @@ function [fig] = plotStationsParisCouleur(infostations, numeros,cmap)
 	
 end
 
+function [fig] = afficheActivGenMean(ag,clusters,cmap)
+	fig = figure;
+	for i=1:(max(clusters))
+		part = ag(clusters==i,:);
+		plot(mean(part,1),"color",cmap(i,:));
+		hold on;
+	end
+	hold off;
 
+end
 
 function [fig] = afficheDiffStationsMean(velib_diff,clusters,cmap)
 
@@ -62,7 +71,7 @@ function [fig] = afficheDiffStationPerDay(week,weekend,clusters,cmap)
 	fig = figure;
 	for i=1:5
 		day = week{i}; %get day data
-		dayDiff = day{1}-day{2}; %let - take = diff
+		dayDiff = day{2}-day{1}; 
 		subplot(2,5,i);
 		for j=1:(max(clusters))
 			part = dayDiff(clusters==j,:);
@@ -75,7 +84,7 @@ function [fig] = afficheDiffStationPerDay(week,weekend,clusters,cmap)
 
 	for i=1:2
 		day = weekend{i}; %get day data
-		dayDiff = day{1}-day{2}; %let - take = diff
+		dayDiff = day{2}-day{1};
 		subplot(2,5,i+5);
 
 		for j=1:(max(clusters))
@@ -96,26 +105,38 @@ function [fig] = afficheDiffWeekWeekend(week,weekend,clusters,cmap)
 
 	for i=1:5
 		day = week{i}; %get day data
-		dayDiff = zeros(size(day,1),size(day,2),5);
-		dayDiff(:,:,i) = day{1}-day{2}; %let - take = diff
+		dayDiff = zeros(size(day{1},1),size(day{1},2),5);
+		dayDiff(:,:,i) = day{2}- day{1}; %let - take = diff
 	end
 
-		dayDiff = mean(dayDiff,3);
+	dayDiff = mean(dayDiff,3);
+
+	for j=1:(max(clusters))
 		part = dayDiff(clusters==j,:);
 		subplot(1,2,1)
 		plot(mean(part,1),"color",cmap(j,:));
+		title("Moyenne semaine");
+		hold on;
+	end
+		hold off;
 
 
 	for i=1:2
 		day = weekend{i}; %get day data
-		dayDiff = zeros(size(day,1),size(day,2),5);
-		dayDiff(:,:,i) = day{1}-day{2}; %let - take = diff
+		dayDiff = zeros(size(day{1},1),size(day{1},2),5);
+		dayDiff(:,:,i) = day{2}-day{1}; %let - take = diff
 	end
 
-		dayDiff = mean(dayDiff,3);
+	dayDiff = mean(dayDiff,3);
+
+	for j=1:(max(clusters))
 		part = dayDiff(clusters==j,:);
 		subplot(1,2,2)
 		plot(mean(part,1),"color",cmap(j,:));
+		title("Moyenne Weekend");
+		hold on;
+	end
+	hold off;
 
 end
 

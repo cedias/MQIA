@@ -17,7 +17,9 @@ velib_curr = load('curtab.csv');
 
 %%%%%%%- CONSTANTES -%%%%%%%
 
-NBKM = 2;
+CLUDIFF = 2;
+CLUACTI = 4;
+NBETAT = 3;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -52,8 +54,6 @@ NBKM = 2;
 %===================-~
 disp("==============GENERALITES==================");
 disp("==============Activité par jours");
-ag = sum(velib_take_day + velib_let_day,1);
-ag/sum(ag)*100
 agPlot = plotActiviteGenerale(velib_take_hour,velib_let_hour);
 saveas(agPlot,"activiteHpH.eps","epsc")
 diffPlot = plotDiffActiviteGenerale(velib_diff)
@@ -67,8 +67,8 @@ disp("==============Kmean sur le delta d\'activitée");
 
 %==~ KMEANS - Delta Activité
 
-cmap = jet(NBKM);
-[centers, clusters] = kmeans(velib_diff,NBKM);
+cmap = jet(CLUDIFF);
+[centers, clusters] = kmeans(velib_diff,CLUDIFF);
 
 stDaPlot = plotStationsParisCouleur(infostations,clusters,cmap);
 title("clusters des Stations");
@@ -82,30 +82,58 @@ stationDep = find(clusters==1);
 stationArr = find(clusters==2);
 
 afficheDiffStationPerDay(week,weekend,clusters,cmap);
-afficheDiffWeekWeekend(week,weekend,clusters,cmap);
+diffWW = afficheDiffWeekWeekend(week,weekend,clusters,cmap);
+saveas(diffWW,"diffWW.eps","epsc")
 
 
-%{
 %==~ KMEANS - Activité totale
+
 disp("==============Kmean sur l\'activité totale");
 
-ag2 = velib_take_hour + velib_let_hour;
-[centers, clusters2] = kmeans(ag2,NBKM);
-plotStationsParisCouleur(infostations,clusters2,cmap);
+cmap = jet(CLUACTI);
+ag = velib_take_hour + velib_let_hour;
+[centers, clusters2] = kmeans(ag,CLUACTI);
+activClu = plotStationsParisCouleur(infostations,clusters2,cmap);
+saveas(activClu,"activClu.eps","epsc");
+activMean = afficheActivGenMean(ag,clusters2,cmap);
+saveas(activMean,"activMean.eps","epsc");
+
+%==~ Multicluster
+
+clusters3 = sum([clusters*10 clusters2],2); %% Marche seulement si moins 9 clusters
+c3 = clusters3;
+j=1;
+for i  = unique(c3)'
+	clusters3(c3==i) = j;
+	j= j+1;
+end
+cmap = jet(size(unique(clusters3),1));
+stationsMulti = plotStationsParisCouleur(infostations,clusters3,cmap);
+title("Tous les clusters")
+saveas(stationsMulti,"stMult.eps","epsc");
+diffClustMulti = afficheDiffStationsMean(velib_diff,clusters3,cmap);
+activMeanMulti = afficheActivGenMean(ag,clusters3,cmap);
 
 
+%==~ Chaines Markov
+
+disp("==============Markov sur le Multicluster");
+
+velib_etat = transformeEtats(NBETAT,velib_diff);
+chainesDiff = {};
+
+for i = unique(clusters3)'
+	chainesDiff{i} = initChaineMarkov(NBETAT,velib_etat(clusters3==i,:));
+end
 
 
+disp("==============Markov sur EM");
 
-
-%plotStationsParis(infostations);
-%clusters=floor(rand(size(infostations,1),1).*10+1);
-
-
-disp("==============Markov sur le delta d\'activitée");
-cmap = jet(3);
-[donneesEtats] = transformeEtats(3,velib_curr_N);
-[clusters , chaines] = clustersCM(3,3,donneesEtats,3);
-plotStationsParisCouleur(infostations,clusters,cmap);
+%cmap = jet(3);
+%[donneesEtats] = transformeEtats(3,velib_curr_N);
+%[clusters , chaines] = clustersCM(3,3,donneesEtats,3);
+%plotStationsParisCouleur(infostations,clusters,cmap);
 %}
 %like = likelyhoodSeqCM(donneesEtats(1,:),chaine);
+
+%==~HMM
