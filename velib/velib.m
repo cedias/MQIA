@@ -7,6 +7,7 @@ close all;
 source('velib_functions_base.m');
 source('velib_functions_app.m');
 source('velib_functions_plot.m');
+source('hmm.m');
 
 %load data
 infostations = load("infostations.csv");
@@ -19,7 +20,7 @@ velib_curr = load('curtab.csv');
 
 CLUDIFF = 2;
 CLUACTI = 4;
-NBETAT = 3;
+NBETAT = 2;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -97,7 +98,7 @@ activClu = plotStationsParisCouleur(infostations,clusters2,cmap);
 saveas(activClu,"activClu.eps","epsc");
 activMean = afficheActivGenMean(ag,clusters2,cmap);
 saveas(activMean,"activMean.eps","epsc");
-
+%{
 %==~ Multicluster
 
 clusters3 = sum([clusters*10 clusters2],2); %% Marche seulement si moins 9 clusters
@@ -112,28 +113,91 @@ stationsMulti = plotStationsParisCouleur(infostations,clusters3,cmap);
 title("Tous les clusters")
 saveas(stationsMulti,"stMult.eps","epsc");
 diffClustMulti = afficheDiffStationsMean(velib_diff,clusters3,cmap);
+saveas(diffClustMulti,"diffMult.eps","epsc");
 activMeanMulti = afficheActivGenMean(ag,clusters3,cmap);
+saveas(activMeanMulti,"actiMulti.eps","epsc");
 
 
-%==~ Chaines Markov
+
+==~ Chaines Markov
+
+
 
 disp("==============Markov sur le Multicluster");
 
-velib_etat = transformeEtats(NBETAT,velib_diff);
-chainesDiff = {};
-
-for i = unique(clusters3)'
-	chainesDiff{i} = initChaineMarkov(NBETAT,velib_etat(clusters3==i,:));
+cmp = summer(8);
+disp('choix NBETAT');
+for j=unique(clusters3)'
+	fprintf("cluster %d/8\n",j);
+	fflush(stdout);
+	ml =[];
+	for i=2:10
+		velib_etat = transformeEtats(i,velib_diff);
+		part = velib_etat(clusters3==j,:);
+		chaineTest = initChaineMarkov(i,part);
+		ml = [ml likelyhoodMeanData(part,chaineTest)];
+	end
+	plot(ml,"color",cmp(j,:));
+	hold on;
 end
+hold off;
+
+
+velib_etat = transformeEtats(NBETAT,velib_diff);
+disp("==============Chaines directes");
+
+cmap = jet(NBETAT);
+
+chainesDiff = {};
+moylkl = [];
+for i = unique(clusters3)'
+	part = velib_etat(clusters3==i,:);
+	chainesDiff{i} = initChaineMarkov(NBETAT,part);
+
+	ml = likelyhoodMeanData(part,chainesDiff{i});
+	moylkl = [moylkl ml];
+end
+
+
+disp('Moyenne likelyhood clusters/chaines');
+moylkl
+
+disp("==============Sous clusters");
+
+cmap = jet(2);
+for i = unique(clusters3)'
+	part2 = velib_etat(clusters3==i,:);
+	[clusters , chaines] = clustersCM(NBETAT,2,part2,5);
+	%stationsMulti = plotStationsParisCouleur(infostations(clusters3==1,:),clusters,cmap);
+	for j=1:2
+		ml = likelyhoodMeanData(part2(clusters==j,:),chaines{j});
+		fprintf("cluster %d, sousCluster %d",j);
+		fflush(stdout);
+		ml
+	end
+end
+
 
 
 disp("==============Markov sur EM");
 
-%cmap = jet(3);
-%[donneesEtats] = transformeEtats(3,velib_curr_N);
-%[clusters , chaines] = clustersCM(3,3,donneesEtats,3);
-%plotStationsParisCouleur(infostations,clusters,cmap);
-%}
-%like = likelyhoodSeqCM(donneesEtats(1,:),chaine);
+cmap = jet(2);
+[donneesEtats] = transformeEtats(NBETAT,velib_diff);
+[clusters , chaines] = clustersCM(NBETAT,2,velib_etat,5);
+plotStationsParisCouleur(infostations,clusters,cmap);
+diffClustEM = afficheDiffStationsMean(velib_diff,clusters,cmap);
+saveas(diffClustEM,"diffClustEM.eps","epsc");
+agClustEm = afficheActivGenMean(ag,clusters,cmap);
+saveas(agClustEm,"agClustEm.eps","epsc");
 
+moylkl = [];
+for i = unique(clusters)'
+	part = velib_etat(clusters==i,:);
+	ml = likelyhoodMeanData(part,chaines{i});
+	moylkl = [moylkl ml];
+end
+moylkl
+%}
 %==~HMM
+velib_etat = transformeEtats(NBETAT,velib_diff);
+M = ApprendMMC(velib_etat,NBETAT,2);

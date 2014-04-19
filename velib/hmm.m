@@ -243,7 +243,7 @@ while (Ite<IteMax)
   A=Stats{2};
   B=Stats{3};
   for i=1:N
-          StatsTemp=CompteMMC(M, X(i,:),K); 
+          StatsTemp=CompteMMCAlignLin_GD(M, X(i,:),K); 
           PI = PI + StatsTemp{1};
           A = A + StatsTemp{2};
           B = B + StatsTemp{3};
@@ -269,5 +269,5 @@ end;
 
 function M=Apprend(X,K)
 NB_etatsGD=6;
-M=ApprendMMC(X, NB_etatsGD, K, 1);
+M=ApprendMMC(X, NB_etatsGD, 1);
 end;

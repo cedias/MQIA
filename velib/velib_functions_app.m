@@ -1,4 +1,5 @@
 %velib_function_app
+%%Charles-Emmanuel Dias 2014
 %%CHAINE MARKOV
 	%	-> chaine{1}:Etats
 	%	-> chaine{2}:Mat Transitions
@@ -62,10 +63,19 @@ function [chaines, clusters] = maxVraisemblanceCM(matSequences,chaines,nbetats,n
 	end 
 end
 
+%calcul la likelyhood d'une seq par rapport a une chaine en LOGe()
 function [like] = likelyhoodSeqCM(seq,chaine)
 	like = log(chaine{3}(seq(1)));
 	for i=2:size(seq,2)
-		
 		like = like+log(chaine{2}(seq(1,i-1),seq(1,i))); %%%BUG ?
 	end
+end
+
+%calcul la likelyhood moyenne d'un ensemble de donnée par rapport a une chaine [mean(vecteur),vecteur]
+function [meanLkl, like] = likelyhoodMeanData(data,chaine)
+	like = [];
+	for i=1:size(data,1)
+		like = [like likelyhoodSeqCM(data(i,:),chaine)];
+	end
+	meanLkl = mean(like);
 end
